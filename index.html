@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Idul Fitri untuk Esqi 💚</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+      background: linear-gradient(180deg, #041c32, #064663, #0b8457);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: white;
+    }
+
+    /* Background stars */
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+      opacity: 0.7;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.8); }
+    }
+
+    /* Moon */
+    .moon {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+      width: 100px;
+      height: 100px;
+      background: #ffd369;
+      border-radius: 50%;
+      box-shadow: 0 0 30px #ffd369;
+      z-index: 1;
+    }
+
+    .moon::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 25px;
+      width: 90px;
+      height: 90px;
+      background: #064663;
+      border-radius: 50%;
+    }
+
+    /* Floating ketupat */
+    .ketupat {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #8ee4af, #2ecc71);
+      transform: rotate(45deg);
+      border: 3px solid white;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      animation: float 4s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .ketupat::before,
+    .ketupat::after {
+      content: "";
+      position: absolute;
+      background: #f5f5f5;
+    }
+
+    .ketupat::before {
+      width: 3px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .ketupat::after {
+      height: 3px;
+      width: 100%;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: rotate(45deg) translateY(0px); }
+      50% { transform: rotate(45deg) translateY(-15px); }
+    }
+
+    /* Main card */
+    .card {
+      position: relative;
+      z-index: 5;
+      width: 90%;
+      max-width: 430px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 25px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.35);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .title {
+      font-size: 2rem;
+      color: #ffe082;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 224, 130, 0.4);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #dff6ff;
+    }
+
+    .message {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      color: #ffdf6b;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ffd369, #ffb703);
+      color: #053b50;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 211, 105, 0.5);
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 20px rgba(255, 211, 105, 0.8);
+    }
+
+    .hidden-message {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #fff8dc;
+      display: none;
+      animation: pop 0.8s ease;
+    }
+
+    @keyframes pop {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: rise 4s linear forwards;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    @keyframes rise {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-250px) scale(1.8);
+      }
+    }
+
+    /* Decorative mosque */
+    .mosque {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(to top, rgba(0,0,0,0.35), transparent);
+      z-index: 1;
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: #d9faff;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <!-- Ketupat decorations -->
+  <div class="ketupat" style="top: 100px; left: 40px;"></div>
+  <div class="ketupat" style="top: 180px; right: 40px; animation-delay: 1s;"></div>
+  <div class="ketupat" style="bottom: 180px; left: 60px; animation-delay: 2s;"></div>
+  <div class="ketupat" style="bottom: 220px; right: 70px; animation-delay: 1.5s;"></div>
+
+  <div class="card">
+    <div class="title">🌙 Selamat Idul Fitri 🌙</div>
+    <div class="subtitle">1447 H / 2026 M</div>
+
+    <div class="message">
+      <span class="name">Untuk Esqi 💚</span><br><br>
+      Di hari yang suci ini, aku ingin mengucapkan:<br><br>
+      <b>Taqabbalallahu minna wa minkum</b> 🤲<br>
+      Semoga Allah menerima amal ibadah kita semua.<br><br>
+      Maafkan segala salah, kata, dan sikap yang pernah melukai.<br>
+      Semoga Idul Fitri ini membawa kebahagiaan, keberkahan, dan cinta yang semakin indah untuk kita. ✨
+    </div>
+
+    <button class="btn" onclick="showLove()">Klik Kejutan Untuk Esqi 💖</button>
+
+    <div class="hidden-message" id="hiddenMessage">
+      💌 Esqi, di hari kemenangan ini...<br>
+      semoga senyummu selalu jadi kebahagiaanku,<br>
+      dan semoga setiap langkahmu selalu dipenuhi keberkahan.<br><br>
+      🌙 Selamat Hari Raya Idul Fitri, sayangku 💚✨
+    </div>
+
+    <div class="footer">Dengan penuh cinta di hari yang fitri 🤍</div>
+  </div>
+
+  <div class="mosque"></div>
+
+  <script>
+    // Create stars
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 80; i++) {
+      let star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (1 + Math.random() * 3) + "s";
+      star.style.opacity = Math.random();
+      starsContainer.appendChild(star);
+    }
+
+    function showLove() {
+      const msg = document.getElementById("hiddenMessage");
+      msg.style.display = "block";
+
+      // Create hearts
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          let heart = document.createElement("div");
+          heart.classList.add("heart");
+          heart.innerHTML = ["💚","💖","✨","🌙","💛"][Math.floor(Math.random() * 5)];
+          heart.style.left = Math.random() * window.innerWidth + "px";
+          heart.style.top = (window.innerHeight - 100) + "px";
+          heart.style.fontSize = (18 + Math.random() * 18) + "px";
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 4000);
+        }, i * 120);
+      }
+    }
+  </script>
+
+</body>
+</html>
